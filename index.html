@@ -262,7 +262,7 @@
         /* ═══════════════════════════════════════════════════ */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(6, 1fr);
             gap: 16px; margin-bottom: 28px;
             position: relative;
             z-index: 1;
@@ -285,8 +285,7 @@
         .kpi-card:nth-child(3)::before { background: var(--accent-emerald); }
         .kpi-card:nth-child(4)::before { background: var(--accent-amber); }
         .kpi-card:nth-child(5)::before { background: var(--accent-pink); }
-        .kpi-card:nth-child(6)::before { background: var(--accent-blue); }
-        .kpi-card:nth-child(7)::before { background: var(--accent-rose); }
+        .kpi-card:nth-child(6)::before { background: var(--accent-rose); }
         .kpi-card:hover {
             transform: translateY(-4px);
             border-color: var(--border-hover);
@@ -295,8 +294,7 @@
         .kpi-card:nth-child(1):hover { box-shadow: var(--shadow-glow-cyan); }
         .kpi-card:nth-child(2):hover { box-shadow: var(--shadow-glow-violet); }
         .kpi-card:nth-child(5):hover { box-shadow: 0 0 30px rgba(236, 72, 153, 0.15); }
-        .kpi-card:nth-child(6):hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); }
-        .kpi-card:nth-child(7):hover { box-shadow: 0 0 30px rgba(244, 63, 94, 0.15); }
+        .kpi-card:nth-child(6):hover { box-shadow: 0 0 30px rgba(244, 63, 94, 0.15); }
         .kpi-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
         .kpi-icon {
             width: 40px; height: 40px; border-radius: var(--radius-sm);
@@ -308,8 +306,7 @@
         .kpi-card:nth-child(3) .kpi-icon { background: rgba(16,185,129,0.12); }
         .kpi-card:nth-child(4) .kpi-icon { background: rgba(245,158,11,0.12); }
         .kpi-card:nth-child(5) .kpi-icon { background: rgba(236,72,153,0.12); }
-        .kpi-card:nth-child(6) .kpi-icon { background: rgba(59,130,246,0.12); }
-        .kpi-card:nth-child(7) .kpi-icon { background: rgba(244,63,94,0.12); }
+        .kpi-card:nth-child(6) .kpi-icon { background: rgba(244,63,94,0.12); }
         .kpi-label { font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
         .kpi-value {
             font-family: 'Poppins', sans-serif;
@@ -321,8 +318,7 @@
         .kpi-card:nth-child(3) .kpi-value { color: var(--accent-emerald); }
         .kpi-card:nth-child(4) .kpi-value { color: var(--accent-amber); }
         .kpi-card:nth-child(5) .kpi-value { color: var(--accent-pink); }
-        .kpi-card:nth-child(6) .kpi-value { color: var(--accent-blue); }
-        .kpi-card:nth-child(7) .kpi-value { color: var(--accent-rose); }
+        .kpi-card:nth-child(6) .kpi-value { color: var(--accent-rose); }
         .kpi-sub {
             font-size: 13px; color: var(--text-secondary);
             display: flex; align-items: center; gap: 6px;
@@ -677,20 +673,11 @@
             </div>
             <div class="kpi-card">
                 <div class="kpi-header">
-                    <div class="kpi-icon">⚡</div>
-                    <span class="kpi-label">Sesiones 1er Msj</span>
-                </div>
-                <div class="kpi-value" id="kpiSessions1st">0</div>
-                <div class="kpi-sub">Tasa: <span class="kpi-rate text-blue" id="kpiSessions1stRate">0%</span></div>
-                <div class="kpi-avg" id="kpiSessions1stAvg">Prom. diario: --</div>
-            </div>
-            <div class="kpi-card">
-                <div class="kpi-header">
                     <div class="kpi-icon">🎯</div>
                     <span class="kpi-label">Sesiones Seguimiento</span>
                 </div>
                 <div class="kpi-value" id="kpiSessionsFollowup">0</div>
-                <div class="kpi-sub">Tasa: <span class="kpi-rate text-rose" id="kpiSessionsFollowupRate">0%</span></div>
+                <div class="kpi-sub">De seguimientos</div>
                 <div class="kpi-avg" id="kpiSessionsFollowupAvg">Prom. diario: --</div>
             </div>
         </section>
@@ -710,7 +697,6 @@
                             <option value="invites">Invitaciones</option>
                             <option value="sesiones">Sesiones Totales</option>
                             <option value="seguimientos">Seguimientos Enviados</option>
-                            <option value="sesiones1er">Sesiones 1er Msj</option>
                             <option value="sesionesSeg">Sesiones de Seguimiento</option>
                         </select>
                         <button class="chart-type-btn active" data-chart="comparison" data-type="bar" onclick="switchChartType('comparison','bar')">Barras</button>
@@ -735,7 +721,6 @@
                         <option value="mensajes">Por Mensajes</option>
                         <option value="invites">Por Invitaciones</option>
                         <option value="seguimientos">Por Seguimientos</option>
-                        <option value="sesiones1er">Por Sesiones 1er Msj</option>
                         <option value="sesionesSeg">Por Sesiones Seguimiento</option>
                         <option value="rate">Por Tasa Respuesta</option>
                     </select>
@@ -758,7 +743,6 @@
                             <option value="invites">Invitaciones</option>
                             <option value="sesiones">Sesiones Totales</option>
                             <option value="seguimientos">Seguimientos Enviados</option>
-                            <option value="sesiones1er">Sesiones 1er Msj</option>
                             <option value="sesionesSeg">Sesiones de Seguimiento</option>
                         </select>
                         <button class="chart-type-btn active" data-chart="trend" data-type="line" onclick="switchChartType('trend','line')">Línea</button>
@@ -793,7 +777,6 @@
                     <label class="chart-toggle"><input type="checkbox" checked data-multi="invites" onchange="updateMultiChart()"> Invitaciones</label>
                     <label class="chart-toggle"><input type="checkbox" checked data-multi="sesiones" onchange="updateMultiChart()"> Sesiones Totales</label>
                     <label class="chart-toggle"><input type="checkbox" checked data-multi="seguimientos" onchange="updateMultiChart()"> Seguimientos</label>
-                    <label class="chart-toggle"><input type="checkbox" data-multi="sesiones1er" onchange="updateMultiChart()"> Sesiones 1er Msj</label>
                     <label class="chart-toggle"><input type="checkbox" data-multi="sesionesSeg" onchange="updateMultiChart()"> Sesiones Seg.</label>
                     <label class="chart-toggle"><input type="checkbox" id="multiLabels" onchange="updateMultiChart()"> Etiquetas</label>
                 </div>
@@ -826,7 +809,6 @@
                             <th onclick="sortTable('invites')">Invitaciones <span class="sort-arrow">↕</span></th>
                             <th onclick="sortTable('sesiones')">Sesiones Tot. <span class="sort-arrow">↕</span></th>
                             <th onclick="sortTable('seguimientos')">Seguimientos <span class="sort-arrow">↕</span></th>
-                            <th onclick="sortTable('sesiones1er')">Ses. 1er Msj <span class="sort-arrow">↕</span></th>
                             <th onclick="sortTable('sesionesSeg')">Ses. Seg. <span class="sort-arrow">↕</span></th>
                             <th>Tasa Resp.</th>
                         </tr>
@@ -867,7 +849,6 @@
         invites: '#10b981',
         sesiones: '#f59e0b',
         seguimientos: '#ec4899',
-        sesiones1er: '#3b82f6',
         sesionesSeg: '#f43f5e',
     };
     const METRIC_LABELS = {
@@ -876,7 +857,6 @@
         invites: 'Invitaciones Enviadas',
         sesiones: 'Sesiones Totales',
         seguimientos: 'Seguimientos Enviados',
-        sesiones1er: 'Sesiones 1er Msj',
         sesionesSeg: 'Sesiones de Seguimiento',
     };
 
@@ -980,6 +960,8 @@
 
             const bdr = (cells[3]?.v || '').toString().trim();
             if (!fecha || !bdr) continue; // Skip separator/empty rows
+            // Skip separator rows like "Semana del ..." in BDR column
+            if (bdr.toLowerCase().startsWith('semana')) continue;
 
             data.push({
                 fecha,
@@ -993,7 +975,6 @@
                 invites: parseFloat(cells[7]?.v) || 0,
                 sesiones: parseFloat(cells[8]?.v) || 0,
                 seguimientos: parseFloat(cells[9]?.v) || 0,
-                sesiones1er: parseFloat(cells[10]?.v) || 0,
                 sesionesSeg: parseFloat(cells[11]?.v) || 0,
             });
         }
@@ -1228,10 +1209,9 @@
             acc.invites += r.invites;
             acc.sesiones += r.sesiones;
             acc.seguimientos += r.seguimientos;
-            acc.sesiones1er += r.sesiones1er;
             acc.sesionesSeg += r.sesionesSeg;
             return acc;
-        }, { mensajes: 0, respuestas: 0, invites: 0, sesiones: 0, seguimientos: 0, sesiones1er: 0, sesionesSeg: 0 });
+        }, { mensajes: 0, respuestas: 0, invites: 0, sesiones: 0, seguimientos: 0, sesionesSeg: 0 });
 
         const uniqueDays = new Set(filteredData.map(r => r.fechaStr)).size;
         const avgDiv = uniqueDays || 1;
@@ -1241,24 +1221,18 @@
         animateValue(document.getElementById('kpiInvites'), totals.invites);
         animateValue(document.getElementById('kpiSessions'), totals.sesiones);
         animateValue(document.getElementById('kpiFollowups'), totals.seguimientos);
-        animateValue(document.getElementById('kpiSessions1st'), totals.sesiones1er);
         animateValue(document.getElementById('kpiSessionsFollowup'), totals.sesionesSeg);
 
         const replyRate = totals.mensajes > 0 ? ((totals.respuestas / totals.mensajes) * 100).toFixed(1) : '0.0';
         const convRate = totals.invites > 0 ? ((totals.sesiones / totals.invites) * 100).toFixed(1) : '0.0';
-        const sessions1stRate = totals.sesiones > 0 ? ((totals.sesiones1er / totals.sesiones) * 100).toFixed(1) : '0.0';
-        const sessionsFollowupRate = totals.sesiones > 0 ? ((totals.sesionesSeg / totals.sesiones) * 100).toFixed(1) : '0.0';
         document.getElementById('kpiReplyRate').textContent = replyRate + '%';
         document.getElementById('kpiConvRate').textContent = convRate + '%';
-        document.getElementById('kpiSessions1stRate').textContent = sessions1stRate + '%';
-        document.getElementById('kpiSessionsFollowupRate').textContent = sessionsFollowupRate + '%';
 
         document.getElementById('kpiMessagesAvg').textContent = `Prom. diario: ${Math.round(totals.mensajes / avgDiv)}`;
         document.getElementById('kpiRepliesAvg').textContent = `Prom. diario: ${(totals.respuestas / avgDiv).toFixed(1)}`;
         document.getElementById('kpiInvitesAvg').textContent = `Prom. diario: ${Math.round(totals.invites / avgDiv)}`;
         document.getElementById('kpiSessionsAvg').textContent = `Prom. diario: ${(totals.sesiones / avgDiv).toFixed(1)}`;
         document.getElementById('kpiFollowupsAvg').textContent = `Prom. diario: ${(totals.seguimientos / avgDiv).toFixed(1)}`;
-        document.getElementById('kpiSessions1stAvg').textContent = `Prom. diario: ${(totals.sesiones1er / avgDiv).toFixed(1)}`;
         document.getElementById('kpiSessionsFollowupAvg').textContent = `Prom. diario: ${(totals.sesionesSeg / avgDiv).toFixed(1)}`;
     }
 
@@ -1295,7 +1269,7 @@
 
         if (type === 'radar') {
             // Radar: all metrics for each analyst
-            const metrics = ['mensajes','respuestas','invites','sesiones','seguimientos','sesiones1er','sesionesSeg'];
+            const metrics = ['mensajes','respuestas','invites','sesiones','seguimientos','sesionesSeg'];
             const datasets = analysts.map(a => {
                 const aData = filteredData.filter(r => r.bdr === a);
                 return {
@@ -1466,11 +1440,11 @@
 
         // Determine if both large metrics (mensajes/invites) and small metrics (respuestas/sesiones) are active
         const hasLarge = activeMetrics.includes('mensajes') || activeMetrics.includes('invites') || activeMetrics.includes('seguimientos');
-        const hasSmall = activeMetrics.includes('respuestas') || activeMetrics.includes('sesiones') || activeMetrics.includes('sesiones1er') || activeMetrics.includes('sesionesSeg');
+        const hasSmall = activeMetrics.includes('respuestas') || activeMetrics.includes('sesiones') || activeMetrics.includes('sesionesSeg');
         const useDualAxis = hasLarge && hasSmall;
 
         const datasets = activeMetrics.map(metric => {
-            const isSmall = (metric === 'respuestas' || metric === 'sesiones' || metric === 'sesiones1er' || metric === 'sesionesSeg');
+            const isSmall = (metric === 'respuestas' || metric === 'sesiones' || metric === 'sesionesSeg');
             return {
                 label: METRIC_LABELS[metric],
                 data: analysts.map(a => filteredData.filter(r => r.bdr === a).reduce((s,r) => s + r[metric], 0)),
@@ -1615,7 +1589,6 @@
                 <td>${r.invites}</td>
                 <td>${r.sesiones}</td>
                 <td style="color:var(--accent-pink)">${r.seguimientos}</td>
-                <td style="color:var(--accent-blue)">${r.sesiones1er}</td>
                 <td style="color:var(--accent-rose)">${r.sesionesSeg}</td>
                 <td style="color:${parseFloat(rate) > 10 ? 'var(--accent-emerald)' : parseFloat(rate) > 5 ? 'var(--accent-amber)' : 'var(--text-muted)'}">${rate}</td>
             </tr>`;
@@ -1648,10 +1621,10 @@
 
     // ─── EXPORT CSV ───────────────────────────────────────
     function exportCSV() {
-        const headers = ['Fecha', 'Analista', 'Proceso', 'Mensajes', 'Respuestas', 'Invitaciones', 'Sesiones Totales', 'Seguimientos Enviados', 'Sesiones 1er Msj', 'Sesiones de Seguimiento', 'Tasa Respuesta'];
+        const headers = ['Fecha', 'Analista', 'Proceso', 'Mensajes', 'Respuestas', 'Invitaciones', 'Sesiones Totales', 'Seguimientos Enviados', 'Sesiones de Seguimiento', 'Tasa Respuesta'];
         const rows = filteredData.map(r => {
             const rate = r.mensajes > 0 ? ((r.respuestas / r.mensajes) * 100).toFixed(1) + '%' : '0%';
-            return [r.fechaStr, r.bdr, r.proceso, r.mensajes, r.respuestas, r.invites, r.sesiones, r.seguimientos, r.sesiones1er, r.sesionesSeg, rate];
+            return [r.fechaStr, r.bdr, r.proceso, r.mensajes, r.respuestas, r.invites, r.sesiones, r.seguimientos, r.sesionesSeg, rate];
         });
         let csv = '\uFEFF' + headers.join(',') + '\n'; // BOM for Excel
         rows.forEach(row => { csv += row.map(v => `"${v}"`).join(',') + '\n'; });
